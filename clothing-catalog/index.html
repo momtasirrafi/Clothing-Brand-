@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOIR — Premium Clothing Catalog</title>
+  <meta name="description" content="Discover NOIR's curated collection of premium clothing. Timeless pieces crafted with intention — jackets, dresses, essentials and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="#" class="logo">NOIR</a>
+      <nav class="nav-links" id="nav-links">
+        <a href="#new-arrivals" class="nav-link">New Arrivals</a>
+        <a href="#catalog" class="nav-link">Catalog</a>
+        <a href="#lookbook" class="nav-link">Lookbook</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="search-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="icon-btn" id="cart-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SEARCH OVERLAY ===== -->
+  <div class="search-overlay" id="search-overlay">
+    <button class="search-close" id="search-close" aria-label="Close search">✕</button>
+    <div class="search-content">
+      <p class="search-label">Search our collection</p>
+      <input type="text" id="search-input" class="search-input" placeholder="e.g. jacket, dress, basics..." autocomplete="off" />
+      <div class="search-suggestions">
+        <span class="suggestion-tag" data-filter="all">All Items</span>
+        <span class="suggestion-tag" data-filter="men">Men</span>
+        <span class="suggestion-tag" data-filter="women">Women</span>
+        <span class="suggestion-tag" data-filter="outerwear">Outerwear</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="hero_banner.png" alt="NOIR Collection" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Summer / Fall 2026</p>
+      <h1 class="hero-title">Dress with<br /><em>Intention</em></h1>
+      <p class="hero-sub">Curated essentials for the modern wardrobe. Timeless silhouettes, elevated fabrics.</p>
+      <div class="hero-ctas">
+        <a href="#catalog" class="btn btn-primary">Explore Collection</a>
+        <a href="#lookbook" class="btn btn-ghost">View Lookbook</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE STRIP ===== -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Free Shipping Over $150</span><span class="dot">·</span>
+      <span>New Arrivals Weekly</span><span class="dot">·</span>
+      <span>Sustainable Materials</span><span class="dot">·</span>
+      <span>30-Day Returns</span><span class="dot">·</span>
+      <span>Free Shipping Over $150</span><span class="dot">·</span>
+      <span>New Arrivals Weekly</span><span class="dot">·</span>
+      <span>Sustainable Materials</span><span class="dot">·</span>
+      <span>30-Day Returns</span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <!-- ===== NEW ARRIVALS ===== -->
+  <section class="section" id="new-arrivals">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Just Dropped</p>
+        <h2 class="section-title">New Arrivals</h2>
+      </div>
+      <div class="arrivals-grid" id="new-arrivals-dynamic">
+        <!-- Dynamically populated from API -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FULL CATALOG ===== -->
+  <section class="section catalog-section" id="catalog">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Browse All</p>
+        <h2 class="section-title">The Collection</h2>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar" id="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="men">Men</button>
+        <button class="filter-btn" data-filter="women">Women</button>
+        <button class="filter-btn" data-filter="outerwear">Outerwear</button>
+        <button class="filter-btn" data-filter="essentials">Essentials</button>
+        <div class="sort-wrap">
+          <select id="sort-select" class="sort-select" aria-label="Sort products">
+            <option value="default">Sort: Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A–Z</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="product-grid" id="product-grid">
+        <!-- Cards injected by JS -->
+      </div>
+
+      <div class="no-results" id="no-results" style="display:none;">
+        <p>No items match your filter. <button class="link-btn" id="reset-filter">Reset filters</button></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOOKBOOK ===== -->
+  <section class="lookbook-section" id="lookbook">
+    <div class="lookbook-inner">
+      <div class="lookbook-text">
+        <p class="section-eyebrow">Editorial</p>
+        <h2 class="lookbook-title">The Lookbook</h2>
+        <p class="lookbook-desc">Each season we craft a visual story around our pieces. This collection is about quiet confidence — structured forms, refined textures, and neutral palettes that speak volumes without raising their voice.</p>
+        <a href="#catalog" class="btn btn-outline-light">Shop the Look</a>
+      </div>
+      <div class="lookbook-grid">
+        <div class="lookbook-img tall">
+          <img src="camel_coat.png" alt="Lookbook – Overcoat" loading="lazy" />
+        </div>
+        <div class="lookbook-img">
+          <img src="womens_dress.png" alt="Lookbook – Dress" loading="lazy" />
+        </div>
+        <div class="lookbook-img">
+          <img src="mens_jacket.png" alt="Lookbook – Blazer" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT / ETHOS ===== -->
+  <section class="section about-section" id="about">
+    <div class="container about-inner">
+      <div class="about-text">
+        <p class="section-eyebrow">Our Philosophy</p>
+        <h2 class="about-title">Fewer, Better Things</h2>
+        <p class="about-desc">NOIR was founded on a single belief: that the best wardrobe is a thoughtful one. We design pieces that outlast trends — made from responsibly sourced fabrics, cut to flatter, and built to last.</p>
+        <div class="about-stats">
+          <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Sustainable Fabrics</span></div>
+          <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Countries Shipped</span></div>
+          <div class="stat"><span class="stat-num">50k+</span><span class="stat-label">Happy Customers</span></div>
+        </div>
+      </div>
+      <div class="about-img-wrap">
+        <img src="denim_jeans.png" alt="Craftsmanship" class="about-img" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter-section">
+    <div class="newsletter-inner">
+      <p class="section-eyebrow light">Stay in the loop</p>
+      <h2 class="newsletter-title">Join the Inner Circle</h2>
+      <p class="newsletter-sub">Early access, exclusive drops, and styling notes — straight to your inbox.</p>
+      <form class="newsletter-form" id="newsletter-form" novalidate>
+        <input type="email" id="newsletter-email" class="newsletter-input" placeholder="Your email address" required />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <p class="newsletter-note" id="newsletter-msg" style="display:none;"></p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo">NOIR</span>
+        <p>Timeless clothing for the modern world.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="#catalog">All Products</a>
+          <a href="#new-arrivals">New Arrivals</a>
+          <a href="#lookbook">Lookbook</a>
+        </div>
+        <div class="footer-col">
+          <h4>Info</h4>
+          <a href="#">Sizing Guide</a>
+          <a href="#">Care Instructions</a>
+          <a href="#">Sustainability</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Returns & Exchanges</a>
+          <a href="#">Shipping Policy</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 NOIR. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Pinterest">PT</a>
+        <a href="#" aria-label="Twitter/X">X</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== CART DRAWER ===== -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart">
+    <div class="cart-drawer-header">
+      <h3>Your Bag</h3>
+      <button class="cart-drawer-close" id="cart-drawer-close" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <p class="cart-empty">Your bag is empty.</p>
+    </div>
+    <div class="cart-footer" id="cart-footer" style="display:none;">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cart-total-price">$0</span>
+      </div>
+      <button class="btn btn-primary full-width">Checkout</button>
+      <button class="btn btn-ghost full-width" id="continue-shopping">Continue Shopping</button>
+    </div>
+  </aside>
+
+  <!-- ===== PRODUCT MODAL ===== -->
+  <div class="modal-overlay" id="modal-overlay"></div>
+  <div class="product-modal" id="product-modal" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+    <div class="modal-body">
+      <div class="modal-img-wrap">
+        <img id="modal-img" src="" alt="" />
+      </div>
+      <div class="modal-details">
+        <p class="modal-category" id="modal-category"></p>
+        <h2 class="modal-name" id="modal-name"></h2>
+        <p class="modal-price" id="modal-price"></p>
+        <p class="modal-desc" id="modal-desc"></p>
+        <div class="size-selector">
+          <p class="size-label">Select Size</p>
+          <div class="size-options" id="size-options">
+            <button class="size-btn" data-size="XS">XS</button>
+            <button class="size-btn active" data-size="S">S</button>
+            <button class="size-btn" data-size="M">M</button>
+            <button class="size-btn" data-size="L">L</button>
+            <button class="size-btn" data-size="XL">XL</button>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-primary full-width modal-add-btn" id="modal-add-btn">Add to Bag</button>
+          <button class="btn btn-ghost full-width">Add to Wishlist</button>
+        </div>
+        <div class="modal-meta">
+          <div class="meta-item"><span>🌿</span> Sustainably sourced</div>
+          <div class="meta-item"><span>📦</span> Free shipping over $150</div>
+          <div class="meta-item"><span>↩</span> 30-day returns</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

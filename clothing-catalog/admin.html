@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOIR Admin — Product Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-logo">NOIR</span>
+      <span class="sidebar-sub">Admin Panel</span>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-view="dashboard" id="nav-dashboard">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </button>
+      <button class="nav-item" data-view="products" id="nav-products">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Products
+      </button>
+      <button class="nav-item" data-view="add" id="nav-add">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        Add Product
+      </button>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="/" target="_blank" class="view-store-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View Store
+      </a>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main" id="main">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="topbar-title" id="topbar-title">Dashboard</div>
+      <div class="topbar-actions">
+        <div class="status-dot" id="api-status" title="API Status"></div>
+        <span class="status-label" id="api-status-label">Connecting...</span>
+      </div>
+    </header>
+
+    <!-- ===== DASHBOARD VIEW ===== -->
+    <section class="view active" id="view-dashboard">
+      <div class="view-header">
+        <h1>Dashboard</h1>
+        <p class="view-subtitle">An overview of your catalog</p>
+      </div>
+
+      <div class="stats-grid" id="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon purple">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Total Products</span>
+            <span class="stat-value" id="stat-products">—</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon gold">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Categories</span>
+            <span class="stat-value" id="stat-categories">—</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Inventory Value</span>
+            <span class="stat-value" id="stat-value">—</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Low Stock Items</span>
+            <span class="stat-value" id="stat-lowstock">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Products -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Recent Products</h2>
+          <button class="btn btn-sm btn-ghost" data-view="products">View All →</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table" id="dash-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="dash-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRODUCTS VIEW ===== -->
+    <section class="view" id="view-products">
+      <div class="view-header">
+        <div>
+          <h1>Products</h1>
+          <p class="view-subtitle">Manage your full catalog</p>
+        </div>
+        <button class="btn btn-primary" data-view="add" id="add-product-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Product
+        </button>
+      </div>
+
+      <!-- Search & Filter Bar -->
+      <div class="toolbar">
+        <div class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="product-search" placeholder="Search products..." />
+        </div>
+        <select id="cat-filter" class="filter-select">
+          <option value="">All Categories</option>
+          <option value="men">Men</option>
+          <option value="women">Women</option>
+          <option value="outerwear">Outerwear</option>
+          <option value="essentials">Essentials</option>
+        </select>
+        <select id="badge-filter" class="filter-select">
+          <option value="">All Badges</option>
+          <option value="new">New</option>
+          <option value="bestseller">Best Seller</option>
+          <option value="sale">Sale</option>
+          <option value="none">No Badge</option>
+        </select>
+        <span class="product-count" id="product-count">0 products</span>
+      </div>
+
+      <div class="card no-pad">
+        <div class="table-wrap">
+          <table class="table" id="products-table">
+            <thead>
+              <tr>
+                <th style="width:60px">Image</th>
+                <th>Name</th>
+                <th>SKU</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Badge</th>
+                <th style="width:130px">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="products-tbody"></tbody>
+          </table>
+        </div>
+        <div class="table-empty" id="table-empty" style="display:none">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+          <p>No products found</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ADD / EDIT PRODUCT VIEW ===== -->
+    <section class="view" id="view-add">
+      <div class="view-header">
+        <div>
+          <h1 id="form-title">Add New Product</h1>
+          <p class="view-subtitle" id="form-subtitle">Fill in the details below</p>
+        </div>
+        <button class="btn btn-ghost" id="cancel-edit-btn" style="display:none">Cancel Edit</button>
+      </div>
+
+      <form id="product-form" class="product-form" novalidate>
+        <input type="hidden" id="edit-id" value="" />
+
+        <div class="form-grid">
+          <!-- Left column -->
+          <div class="form-col">
+            <div class="card">
+              <div class="card-header"><h2 class="card-title">Basic Info</h2></div>
+              <div class="form-body">
+                <div class="field">
+                  <label for="f-name">Product Name <span class="req">*</span></label>
+                  <input type="text" id="f-name" placeholder="e.g. Obsidian Blazer" required />
+                  <span class="field-error" id="err-name"></span>
+                </div>
+                <div class="field">
+                  <label for="f-sku">SKU</label>
+                  <input type="text" id="f-sku" placeholder="e.g. MJ-001" />
+                </div>
+                <div class="field">
+                  <label for="f-desc">Description</label>
+                  <textarea id="f-desc" rows="4" placeholder="Describe the product..."></textarea>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="f-price">Price ($) <span class="req">*</span></label>
+                    <input type="number" id="f-price" min="0" step="0.01" placeholder="0.00" required />
+                    <span class="field-error" id="err-price"></span>
+                  </div>
+                  <div class="field">
+                    <label for="f-orig-price">Original Price ($)</label>
+                    <input type="number" id="f-orig-price" min="0" step="0.01" placeholder="For sale items" />
+                  </div>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="f-stock">Stock Qty</label>
+                    <input type="number" id="f-stock" min="0" placeholder="0" />
+                  </div>
+                  <div class="field">
+                    <label for="f-category">Category <span class="req">*</span></label>
+                    <select id="f-category" required>
+                      <option value="">Select…</option>
+                      <option value="men">Men</option>
+                      <option value="women">Women</option>
+                      <option value="outerwear">Outerwear</option>
+                      <option value="essentials">Essentials</option>
+                    </select>
+                    <span class="field-error" id="err-category"></span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="f-category-label">Category Label</label>
+                  <input type="text" id="f-category-label" placeholder="e.g. Men · Jackets" />
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="f-badge">Badge</label>
+                    <select id="f-badge">
+                      <option value="">None</option>
+                      <option value="new">New</option>
+                      <option value="bestseller">Best Seller</option>
+                      <option value="sale">Sale</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="f-badge-label">Badge Label</label>
+                    <input type="text" id="f-badge-label" placeholder="e.g. New" />
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="f-tags">Tags <span class="hint">(comma-separated)</span></label>
+                  <input type="text" id="f-tags" placeholder="men, jacket, blazer" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right column -->
+          <div class="form-col">
+            <div class="card">
+              <div class="card-header"><h2 class="card-title">Product Image</h2></div>
+              <div class="form-body">
+                <div class="upload-zone" id="upload-zone">
+                  <div class="upload-preview" id="upload-preview">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    <p>Drag & drop or click to upload</p>
+                    <span>PNG, JPG, WEBP up to 8MB</span>
+                  </div>
+                  <img id="preview-img" src="" alt="" style="display:none" />
+                  <input type="file" id="f-image" accept="image/*" class="upload-input" />
+                </div>
+                <div class="field" style="margin-top:16px">
+                  <label for="f-image-url">Or use existing image filename</label>
+                  <input type="text" id="f-image-url" placeholder="e.g. mens_jacket.png" />
+                </div>
+                <p class="field-hint">Available images: <span id="available-images"></span></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h2 class="card-title">Preview</h2></div>
+              <div class="form-body">
+                <div class="product-preview-card">
+                  <div class="preview-img-wrap">
+                    <img id="preview-card-img" src="white_tshirt.png" alt="" />
+                    <span class="preview-badge" id="preview-badge" style="display:none"></span>
+                  </div>
+                  <p class="preview-cat" id="preview-cat">Category</p>
+                  <p class="preview-name" id="preview-name">Product Name</p>
+                  <p class="preview-price" id="preview-price">$0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+            Save Product
+          </button>
+          <button type="button" class="btn btn-ghost btn-lg" id="clear-form-btn">Clear Form</button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ===== DELETE CONFIRM MODAL ===== -->
+  <div class="modal-backdrop" id="delete-backdrop"></div>
+  <div class="confirm-modal" id="delete-modal">
+    <div class="confirm-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+    </div>
+    <h3>Delete Product?</h3>
+    <p id="delete-modal-name">This action cannot be undone.</p>
+    <div class="confirm-actions">
+      <button class="btn btn-ghost" id="cancel-delete">Cancel</button>
+      <button class="btn btn-danger" id="confirm-delete">Delete</button>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="admin-toast" id="admin-toast">
+    <span class="toast-icon" id="toast-icon"></span>
+    <span id="toast-text"></span>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

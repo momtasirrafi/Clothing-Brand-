@@ -1,0 +1,171 @@
+[
+  {
+    "id": 1,
+    "name": "Scarlet Midi Dress",
+    "category": "women",
+    "categoryLabel": "Women · Dresses",
+    "price": 295,
+    "originalPrice": null,
+    "image": "womens_dress.png",
+    "badge": "new",
+    "badgeLabel": "New",
+    "desc": "A flowing burgundy midi dress in premium viscose-silk blend. Tailored with a relaxed bodice and gathered waist — effortlessly elegant from gallery opening to candlelit dinner.",
+    "tags": [
+      "women",
+      "dress",
+      "new arrivals"
+    ],
+    "stock": 24,
+    "sku": "WD-001"
+  },
+  {
+    "id": 2,
+    "name": "Obsidian Blazer",
+    "category": "men",
+    "categoryLabel": "Men · Jackets",
+    "price": 485,
+    "originalPrice": null,
+    "image": "mens_jacket.png",
+    "badge": "new",
+    "badgeLabel": "New",
+    "desc": "Structured charcoal blazer crafted in Italian wool-blend. Single-breasted with notch lapels, ideal as a boardroom staple or weekend centerpiece.",
+    "tags": [
+      "men",
+      "jacket",
+      "new arrivals"
+    ],
+    "stock": 15,
+    "sku": "MJ-001"
+  },
+  {
+    "id": 3,
+    "name": "Nomad Overcoat",
+    "category": "outerwear",
+    "categoryLabel": "Men · Outerwear",
+    "price": 620,
+    "originalPrice": null,
+    "image": "camel_coat.png",
+    "badge": "bestseller",
+    "badgeLabel": "Best Seller",
+    "desc": "Our signature camel overcoat in pure wool. Generous shoulders, a clean drop silhouette, and interior silk lining make this the ultimate investment piece.",
+    "tags": [
+      "men",
+      "outerwear",
+      "coat"
+    ],
+    "stock": 10,
+    "sku": "MO-001"
+  },
+  {
+    "id": 4,
+    "name": "Blanc Essential Tee",
+    "category": "essentials",
+    "categoryLabel": "Unisex · Essentials",
+    "price": 85,
+    "originalPrice": null,
+    "image": "white_tshirt.png",
+    "badge": null,
+    "badgeLabel": null,
+    "desc": "Our bestselling essential tee — reimagined. 230gsm Supima cotton with a relaxed boxy fit. The foundation of every capsule wardrobe.",
+    "tags": [
+      "men",
+      "women",
+      "essentials",
+      "basics"
+    ],
+    "stock": 120,
+    "sku": "ES-001"
+  },
+  {
+    "id": 5,
+    "name": "Indigo Slim Denim",
+    "category": "men",
+    "categoryLabel": "Men · Bottoms",
+    "price": 195,
+    "originalPrice": 240,
+    "image": "denim_jeans.png",
+    "badge": "sale",
+    "badgeLabel": "Sale",
+    "desc": "Dark indigo Japanese selvedge denim in a clean slim silhouette. Sanforized for minimal shrink, fading beautifully with wear.",
+    "tags": [
+      "men",
+      "denim",
+      "bottoms"
+    ],
+    "stock": 38,
+    "sku": "MB-001"
+  },
+  {
+    "id": 6,
+    "name": "Dusk Overcoat",
+    "category": "outerwear",
+    "categoryLabel": "Women · Outerwear",
+    "price": 580,
+    "originalPrice": null,
+    "image": "camel_coat.png",
+    "badge": "new",
+    "badgeLabel": "New",
+    "desc": "A longer, slightly oversized version of our Nomad silhouette — cut for women with a sweeping hem. Sold in camel and charcoal.",
+    "tags": [
+      "women",
+      "outerwear",
+      "coat"
+    ],
+    "stock": 8,
+    "sku": "WO-001"
+  },
+  {
+    "id": 7,
+    "name": "Structure Blazer (Women)",
+    "category": "women",
+    "categoryLabel": "Women · Jackets",
+    "price": 440,
+    "originalPrice": null,
+    "image": "mens_jacket.png",
+    "badge": null,
+    "badgeLabel": null,
+    "desc": "A women's tailored blazer with strong shoulders and a nipped waist. Power dressing, refined.",
+    "tags": [
+      "women",
+      "jacket",
+      "blazer"
+    ],
+    "stock": 19,
+    "sku": "WJ-001"
+  },
+  {
+    "id": 8,
+    "name": "Capsule Tee — Slate",
+    "category": "essentials",
+    "categoryLabel": "Unisex · Essentials",
+    "price": 85,
+    "originalPrice": null,
+    "image": "white_tshirt.png",
+    "badge": null,
+    "badgeLabel": null,
+    "desc": "The same cut as our Blanc Essential — in a washed slate grey. A grounding piece for any look.",
+    "tags": [
+      "men",
+      "women",
+      "essentials",
+      "basics"
+    ],
+    "stock": 95,
+    "sku": "ES-002"
+  },
+  {
+    "id": 9,
+    "name": "Velvet Tuxedo",
+    "category": "men",
+    "categoryLabel": "Men · Jackets",
+    "price": 350,
+    "originalPrice": null,
+    "image": "mens_jacket.png",
+    "badge": null,
+    "badgeLabel": null,
+    "desc": "Elegant black velvet tuxedo jacket for formal occasions.",
+    "tags": [],
+    "stock": 12,
+    "sku": "MJ-002"
+  }
+]
