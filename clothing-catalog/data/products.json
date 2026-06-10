@@ -167,5 +167,22 @@
     "tags": [],
     "stock": 12,
     "sku": "MJ-002"
+  },
+  {
+    "id": 10,
+    "name": "Bag",
+    "category": "essentials",
+    "categoryLabel": "Unisex · Essentials",
+    "price": 120,
+    "originalPrice": 100,
+    "image": "uploads/1781078435768-94904.jpg",
+    "badge": null,
+    "badgeLabel": "12345678",
+    "desc": "",
+    "tags": [
+      "Travel Bag"
+    ],
+    "stock": 5,
+    "sku": "Bag-001"
   }
 ]

@@ -2,7 +2,7 @@
    NOIR — Clothing Catalog Store (API-driven)
    ============================================================ */
 
-const API = 'http://localhost:3000/api';
+const API = '/api';
 
 // ─── State ───────────────────────────────────────────────────
 let products           = [];
@@ -38,7 +38,7 @@ async function loadProducts() {
     console.error('Failed to load products from API', err);
     productGrid.innerHTML = `
       <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:rgba(240,237,232,0.4)">
-        <p style="font-size:14px">Could not connect to the server. Please ensure it is running on port 3000.</p>
+        <p style="font-size:14px">Could not connect to the server. Please ensure the server is running.</p>
       </div>`;
   }
 }

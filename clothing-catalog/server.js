@@ -9,10 +9,10 @@ const PORT = 3000;
 
 // ─── Paths ───────────────────────────────────────────────────
 const DATA_FILE    = path.join(__dirname, 'data', 'products.json');
-const UPLOADS_DIR  = path.join(__dirname, 'uploads');
+const UPLOADS_DIR  = process.env.VERCEL ? '/tmp/uploads' : path.join(__dirname, 'uploads');
 
 // Ensure uploads dir exists
-if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR);
+if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 
 // ─── Middleware ───────────────────────────────────────────────
 app.use(cors());
@@ -153,8 +153,8 @@ app.get('/api/stats', (_req, res) => {
 });
 
 // ─── Page Routes ──────────────────────────────────────────────
-app.get('/', (_req, res) => res.sendFile(path.join(__dirname, 'index.html')));
-app.get('/admin', (_req, res) => res.sendFile(path.join(__dirname, 'admin.html')));
+app.get('/', (_req, res) => res.sendFile('index.html', { root: __dirname }));
+app.get('/admin', (_req, res) => res.sendFile('admin.html', { root: __dirname }));
 
 // ─── Start ────────────────────────────────────────────────────
 app.listen(PORT, () => {

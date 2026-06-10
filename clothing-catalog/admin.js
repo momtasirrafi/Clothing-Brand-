@@ -2,7 +2,7 @@
    NOIR Admin — JavaScript
    ============================================================ */
 
-const API = 'http://localhost:3000/api';
+const API = '/api';
 
 // ─── State ────────────────────────────────────────────────────
 let allProducts   = [];
@@ -62,8 +62,10 @@ document.addEventListener('click', e => {
 // API HELPERS
 // ============================================================
 async function apiFetch(path, options = {}) {
+  const isFormData = options.body instanceof FormData;
+  const headers = isFormData ? {} : { 'Content-Type': 'application/json', ...options.headers };
   const res = await fetch(`${API}${path}`, {
-    headers: { 'Content-Type': 'application/json', ...options.headers },
+    headers,
     ...options,
   });
   if (!res.ok) throw new Error(`API ${res.status}: ${await res.text()}`);
@@ -72,7 +74,8 @@ async function apiFetch(path, options = {}) {
 
 async function checkApiStatus() {
   try {
-    await fetch(`${API}/products`);
+    const res = await fetch(`${API}/products`);
+    if (!res.ok) throw new Error();
     apiStatus.className = 'status-dot online';
     apiStatusLbl.textContent = 'API Online';
   } catch {
